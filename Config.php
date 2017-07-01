@@ -6,45 +6,32 @@ $DB_HOST=(/*hostname*/'localhost');
 $DB_USERNAME=/*username*/'root';
 $DB_PASSWORD=    /*password*/'';
 $DB_NAME=    /*database name*/'rental-store';
+$connection=null;
 
-function connectDatabase()
-{
 
-    $this->connection = new mysqli($this->db_host, $this->username, $this->pwd, $this->database);
+//testing connection
+    $connection = new mysqli($DB_HOST, $DB_USERNAME,$DB_PASSWORD, $DB_NAME);
     if (mysqli_connect_errno()) {
         $this->HandleDBError("Database connect failed!", mysqli_connect_errno());
-        return false;
+         
         //exit();
     }
-    //        if(!$this->connection)
-//        {
-//            $this->HandleDBError("Database connect failed!");
-//            return false;
-//        }
-//        if(!mysqli_select_db($this->connection, $this->database))
-//        {
-//            $this->HandleDBError('Failed to select database: '.$this->database.' Please make sure that the database name provided is correct');
-//            return false;
-//        }
-    if (!mysqli_query($this->connection, "SET NAMES 'UTF8'")) {
-        $this->HandleDBError('Error setting utf8 encoding', "set name utf8");
-        return false;
+            if(!$connection)
+        {
+            
+            die("Database connect failed!");
+        }
+        if(!mysqli_select_db($connection, $DB_NAME))
+        {
+            
+            die('Failed to select database: '.$DB_NAME.' Please make sure that the database name provided is correct');
+        }
+    if (!mysqli_query( $connection, "SET NAMES 'UTF8'")) {
+  
+         die('Error setting utf8 encoding set name utf8');
     }
-    if (!mysqli_set_charset($this->connection, "utf8")) {
-        printf("Error loading character set utf8: %s\n", mysqli_error($this->connection));
+    if (!mysqli_set_charset( $connection, "utf8")) {
+        printf("Error loading character set utf8: %s\n", mysqli_error($connection));
         die('');
     }
-//        echo"<br><br>";
-//
-//        print_r($_REQUEST);
-//        foreach($_REQUEST as $r){
-//            $r=mysqli_real_escape_string($r);
-//        }
-//        echo"<br><br>";
-//        print_r($_REQUEST);
-//        echo"<br><br>";
-//
-    return true;
-
-}
 ?>
