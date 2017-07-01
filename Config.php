@@ -10,28 +10,14 @@ $connection=null;
 
 
 //testing connection
-    $connection = new mysqli($DB_HOST, $DB_USERNAME,$DB_PASSWORD, $DB_NAME);
-    if (mysqli_connect_errno()) {
-        $this->HandleDBError("Database connect failed!", mysqli_connect_errno());
-         
-        //exit();
+   try {
+    $dbh = new PDO("mysql:host=$DB_HOST;dbname=$DB_NAME", $DB_USERNAME, $DB_PASSWORD);
+    foreach($dbh->query('SELECT * from coustomer') as $row) {
+       // print_r($row);
     }
-            if(!$connection)
-        {
-            
-            die("Database connect failed!");
-        }
-        if(!mysqli_select_db($connection, $DB_NAME))
-        {
-            
-            die('Failed to select database: '.$DB_NAME.' Please make sure that the database name provided is correct');
-        }
-    if (!mysqli_query( $connection, "SET NAMES 'UTF8'")) {
-  
-         die('Error setting utf8 encoding set name utf8');
-    }
-    if (!mysqli_set_charset( $connection, "utf8")) {
-        printf("Error loading character set utf8: %s\n", mysqli_error($connection));
-        die('');
-    }
+    
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die("error");
+}
 ?>
