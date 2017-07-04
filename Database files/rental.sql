@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 02, 2017 at 01:50 PM
+-- Generation Time: Jul 04, 2017 at 12:24 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -32,7 +32,8 @@ CREATE TABLE `rental` (
   `id_p` int(20) NOT NULL,
   `id-c` int(20) NOT NULL,
   `date_s` date NOT NULL,
-  `date-e` date NOT NULL
+  `date-e` date NOT NULL,
+  `number` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
