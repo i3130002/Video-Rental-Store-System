@@ -4,8 +4,8 @@
 
 //inseting data
 require_once ("../../Config.php");
-$stmt = $dbh->prepare('INSERT INTO rental (id_p, id_c, date_s,date_e) VALUES (:id_p, :id_c, :date_s, :date_e)');
-$stmt->execute(array(':id_p' => $_POST['id_p'],':id_c' => $_POST['id_c'], ':date_s' => $_POST['date_s'], ':date_e' => $_POST['date_e']));
+$stmt = $dbh->prepare('INSERT INTO rental (id_p, id_c, date_s,date_e,number) VALUES (:id_p, :id_c, :date_s, :date_e, :number)');
+$stmt->execute(array(':id_p' => $_POST['id_p'],':id_c' => $_POST['id_c'], ':date_s' => $_POST['date_s'], ':date_e' => $_POST['date_e'],':number' => $_POST['number']));
 
 
 ?>
@@ -17,11 +17,11 @@ $stmt->execute(array(':id_p' => $_POST['id_p'],':id_c' => $_POST['id_c'], ':date
 <div class="wrapper">
      <div  class="ccform">
     <div class="ccfield-prepend">
-        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <span class="ccform-addon"><i class="fa fa-square fa-2x"></i></span>
         <input class="ccformfield" name="id_p" type="int" value="<?php echo $_POST['id_p']; ?>" >
     </div>
     <div class="ccfield-prepend">
-        <span class="ccform-addon"><i class="fa fa-square fa-2x"></i></span>
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
         <input class="ccformfield" name='id_c' type="int" value="<?php echo $_POST['id_c']; ?>" >
     </div>
     <div class="ccfield-prepend">
@@ -31,6 +31,10 @@ $stmt->execute(array(':id_p' => $_POST['id_p'],':id_c' => $_POST['id_c'], ':date
     <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-clock-o fa-2x"></i></span>
         <input class="ccformfield" name='date_e' type="text" value="<?php echo $_POST['date_e']; ?>">
+    </div>
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-square fa-2x"></i></span>
+        <input class="ccformfield" name='number' type="text" value="<?php echo $_POST['number']; ?>">
     </div>
     <div class="ccfield-prepend">
         <a class="ccbtn" href="../" >داشبورد</a> 

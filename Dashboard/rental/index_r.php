@@ -5,13 +5,14 @@
 </header>
 <div class="wrapper">
     <form method="post" action="add_r.php" class="ccform">
-    <div class="ccfield-prepend">
-        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
-        <input class="ccformfield" name="id_c" type="int" placeholder="شماره عضویت" required>
-    </div>
+  
     <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-square fa-2x"></i></span>
         <input class="ccformfield" name='id_p' type="int" placeholder="شماره محصول" required>
+    </div>
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" name='id_c' type="int" placeholder="شماره عضویت" required>
     </div>
     <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-clock-o fa-2x"></i></span>
@@ -20,6 +21,10 @@
     <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-clock-o fa-2x"></i></span>
         <input class="ccformfield" name='date_e' type="text" placeholder="تاریخ بازگشت">
+    </div>
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-square fa-2x"></i></span>
+        <input class="ccformfield" name='number' type="text" placeholder="شماره محصول">
     </div>
 
     <div class="ccfield-prepend">
