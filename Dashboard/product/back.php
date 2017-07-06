@@ -19,7 +19,7 @@ $stmt->execute(array(':id_p' => $_POST['id_p'],':date-e' => $_POST['date-e']));
 <div class="wrapper">
      <div  class="ccform">
     <div class="ccfield-prepend">
-        <span class="ccform-addon"><i class="fa fa-square fa-2x"></i></span>
+        < <span class="ccform-addon"><i class="fa fa-sun-o fa-2x "></i></span
         <input class="ccformfield" name="id_p" type="int" value="<?php echo $_POST['id_p']; ?>" >
     </div>
     <div class="ccfield-prepend">
