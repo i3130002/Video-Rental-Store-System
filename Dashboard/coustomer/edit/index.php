@@ -4,21 +4,23 @@
     <h1>فرم ویرایش مشتری</h1>
 </header>
 
-
-
 <div class="wrapper">
     <form method="post" action="edit.php" class="ccform">
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-id-card fa-2x"></i></span>
+        <input class="ccformfield" name="id" type="text" placeholder="شماره عضویت مشتری" required>
+    </div>
     <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
         <input class="ccformfield" name="name" type="text" placeholder="نام و نام خانوادگی" required>
     </div>
     <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-envelope fa-2x"></i></span>
-        <input class="ccformfield" name='address' type="text" placeholder="آدرس جدید مشتری" required>
+        <input class="ccformfield" name='address' type="text" placeholder="آدرس" required>
     </div>
     <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-mobile-phone fa-2x"></i></span>
-        <input class="ccformfield" name='phone' type="text" placeholder="تلفن جدید مشتری">
+        <input class="ccformfield" name='phone' type="text" placeholder="تلفن">
     </div>
 
 

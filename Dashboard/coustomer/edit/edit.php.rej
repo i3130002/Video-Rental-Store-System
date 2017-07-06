@@ -1,0 +1,36 @@
+diff a/Dashboard/coustomer/edit/edit.php b/Dashboard/coustomer/edit/edit.php	(rejected hunks)
+@@ -1,31 +1,9 @@
+ ﻿<?php 
+-require_once ("../../../Config.php");
+-
+-$query = "SELECT * FROM coustomer where name = :name";
+-$result = $dbh->prepare($query);
+-$result->execute();
+-$row = $result->fetchAll(PDO::FETCH_ASSOC);
+-echo "<table border='1'>
+-<tr>
+-<th>name</th>
+-<th>address</th>
+-<th>phone</th>
+-</tr>";
+-
+-while($row){
+-     echo "<tr>";
+-     echo "<td>" . $row['name'] . "</td>";
+-     echo "<td>" . $row['address'] . "</td>";
+-     echo "<td>" . $row['phone'] . "</td>";
+-     echo "</tr>";
+-}
+-echo "</table>";
+-
+-
+ 
++require_once ("../../../Config.php");
++$stmt = $dbh->prepare('UPDATE coustomer SET address=:address , phone=:phone WHERE name = :name');
++$stmt->execute(array(':name' => $_POST['name'],':address' => $_POST['address'], ':phone' => $_POST['phone']));
+ 
+-$stmt = $dbh->prepare('INSERT INTO coustomer ( address, phone) VALUES ( :address, :phone) where name = :name');
+-$stmt->execute(array(':address' => $_POST['address'], ':phone' => $_POST['phone']));
+ 
+ //getting inserted id
+ $stmt = $dbh->prepare('select id from coustomer where name=:name and address=:address and phone=:phone');

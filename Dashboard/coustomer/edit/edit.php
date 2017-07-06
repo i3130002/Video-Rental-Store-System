@@ -1,15 +1,8 @@
 ﻿<?php 
 
 require_once ("../../../Config.php");
-$stmt = $dbh->prepare('UPDATE coustomer SET address=:address , phone=:phone WHERE name = :name');
-$stmt->execute(array(':name' => $_POST['name'],':address' => $_POST['address'], ':phone' => $_POST['phone']));
-
-
-//getting inserted id
-$stmt = $dbh->prepare('select id from coustomer where name=:name and address=:address and phone=:phone');
-$stmt->execute(array(':name' => $_POST['name'],':address' => $_POST['address'], ':phone' => $_POST['phone']));
-$id=$stmt->fetch();
-
+$stmt = $dbh->prepare('UPDATE coustomer SET address=:address , phone=:phone WHERE name = :name and id= :id');
+$stmt->execute(array(':id' =>$_POST['id'], ':name' => $_POST['name'],':address' => $_POST['address'], ':phone' => $_POST['phone']));
 ?>
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
@@ -32,7 +25,7 @@ $id=$stmt->fetch();
     </div>
 	<div class="ccfield-prepend">
         <span class="ccform-addon"><i class="fa fa-id-card fa-2x"></i></span>
-        <input class="ccformfield" name='id' type="text" value="<?php echo $id[0]; ?>">
+        <input class="ccformfield" name='id' type="text" value="<?php echo $_POST['id']; ?>">
     </div>
 
     <div class="ccfield-prepend">
