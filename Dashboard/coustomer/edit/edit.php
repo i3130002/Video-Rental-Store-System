@@ -1,6 +1,19 @@
 ﻿<?php 
 
 require_once ("../../../Config.php");
+
+$result=$dbh->prepare('SELECT * FROM coustomer WHERE name = :name and id= :id');
+$result->execute(array(':id' =>$_POST['id'], ':name' => $_POST['name']));
+
+    echo "<table><tr><th>ID</th><th>Name</th><th>Previous address</th><th>Previous phone</th></tr>";
+    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr><td>".$row["id"]."</td><td>".$row["name"]."</td><td>".$row["address"]."</td><td>".$row["phone"]."</td></tr>";
+    }
+    echo "</table>";
+
+
+
+
 $stmt = $dbh->prepare('UPDATE coustomer SET address=:address , phone=:phone WHERE name = :name and id= :id');
 $stmt->execute(array(':id' =>$_POST['id'], ':name' => $_POST['name'],':address' => $_POST['address'], ':phone' => $_POST['phone']));
 ?>
@@ -34,6 +47,7 @@ $stmt->execute(array(':id' =>$_POST['id'], ':name' => $_POST['name'],':address' 
   </div>  
 </div>
 <div class="credit">
+
 <p>اطلاعات مشتری با موفقیت ویرایش شد.</p>
 
 </div>
