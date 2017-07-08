@@ -14,8 +14,8 @@
         <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
         <input class="ccformfield" name="date_e" type="text" placeholder="تاریخ بازگشت محصول" required>
     </div>
-    <div class="ccfield-prepend">
-        <input class="ccbtn" type="submit" value="جستجو">
+     <div class="ccfield-prepend">
+        <input class="ccbtn" type="submit" value="تایید">
     </div>
     </form>
 </div>
