@@ -3,7 +3,7 @@
 require_once ("../../Config.php");
 $stmt = $dbh->prepare('SELECT type FROM cost_product WHERE id=:id and name=:name')
 $stmt->execute(array(':id' => $_POST['id'], ':name' => $_POST['name']));
-echo "<h2>$stmt</h2>";
+$id=$stmt->fetch();;
 $result = mysql_query($stmt);
 if ($result== "vidio") {
 	$stmt = $dbh->prepare('INSERT INTO cost_product (time_rent,cost) VALUES (:time_rent, :cost)')
